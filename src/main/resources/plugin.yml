@@ -1,0 +1,21 @@
+name: DeadChestPl3xMap
+version: '${version}'
+main: io.github.petabytebrain.deadchestpl3xmap.DeadChestPl3xMap
+api-version: '${apiVersion}'
+description: Shows DeadChest graves as markers on Pl3xMap
+authors: [ PetabyteBrain ]
+website: https://github.com/PetabyteBrain/Deadchest-on-Pl3xMap
+depend: [ DeadChest, Pl3xMap ]
+folia-supported: true
+
+commands:
+  deadchestmap:
+    description: DeadChestPl3xMap admin command
+    usage: /<command> reload|status
+    aliases: [ dcmap ]
+    permission: deadchestmap.admin
+
+permissions:
+  deadchestmap.admin:
+    description: Allows /deadchestmap reload and status
+    default: op

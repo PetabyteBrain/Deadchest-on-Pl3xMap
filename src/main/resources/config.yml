@@ -1,0 +1,44 @@
+# DeadChestPl3xMap configuration
+# Every DeadChest that exists is shown as an icon on Pl3xMap. A marker
+# disappears as soon as the chest is picked up, removed, given back, or its
+# DeadChest timer runs out.
+
+layer:
+  # Name of the layer in the Pl3xMap layer control
+  label: "Dead Chests"
+  # How often (in seconds) Pl3xMap refreshes the markers. Lower = faster
+  # reaction to deaths/pickups. 1-5 is sensible.
+  update-interval: 2
+  # Push updates to open browser tabs via server-sent events (no reload needed)
+  live-update: true
+  show-controls: true
+  default-hidden: false
+  priority: 50
+  z-index: 50
+
+marker:
+  # Icon size in pixels on the map
+  icon-size: 20
+  # Show chests that never expire (players with deadchest.infinityChest)
+  show-infinite-chests: true
+
+  # Placeholders (HTML allowed, player names are escaped):
+  #   {player} {world} {x} {y} {z} {items} {xp}
+  #   {time_left}  -> remaining time of the current DeadChest phase
+  #   {status}     -> status-private / status-public text below
+  #   {died}       -> how long ago the player died
+  tooltip: "<b>{player}</b>'s dead chest"
+  popup: |-
+    <b>☠ {player}'s dead chest</b><br>
+    Location: {x}, {y}, {z} ({world})<br>
+    Items: {items} &middot; XP: {xp}<br>
+    Died: {died} ago<br>
+    Status: {status}<br>
+    Time left: {time_left}
+
+  status-private: "Owner only"
+  status-public: "Public loot"
+  time-never: "never expires"
+
+# Worlds (Bukkit world names) where no markers are shown
+disabled-worlds: [ ]
